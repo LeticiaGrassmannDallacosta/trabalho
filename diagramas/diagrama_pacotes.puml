@@ -1,0 +1,33 @@
+'''
+@startuml
+!theme plain
+
+title Diagrama de Pacotes - Arquitetura da Aplicação
+
+package "Presentation (UI)" as Presentation {
+  class "Controllers"
+  class "Views"
+}
+
+package "Application" as Application {
+  class "Services"
+  class "DTOs"
+}
+
+package "Domain" as Domain {
+  class "Entities"
+  class "Repositories"
+}
+
+package "Infrastructure" as Infrastructure {
+  class "DatabaseContext"
+  class "ExternalServices"
+}
+
+Presentation --> Application
+Application --> Domain
+Application --> Infrastructure
+Infrastructure --> Domain
+
+@enduml
+'''
