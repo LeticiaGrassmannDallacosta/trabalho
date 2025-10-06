@@ -1,0 +1,21 @@
+'''
+@startuml
+!theme plain
+
+title Diagrama de Arquitetura DevOps
+
+actor "Desenvolvedor" as Dev
+
+node "Controle de Versão (Git)" as Git
+node "Build & Test" as Build
+node "Deploy" as Deploy
+cloud "Ambiente de Produção" as Prod
+
+Dev -> Git : Push de código
+Git -> Build : Webhook aciona build
+Build -> Build : Executa testes automatizados
+Build -> Deploy : Se os testes passarem
+Deploy -> Prod : Implanta a aplicação
+
+@enduml
+'''
