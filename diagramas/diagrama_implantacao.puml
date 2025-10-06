@@ -1,0 +1,24 @@
+'''
+@startuml
+!theme plain
+
+title Diagrama de Arquitetura de Implantação
+
+cloud "Provedor de Nuvem (ex: AWS, Azure, GCP)" {
+  node "Servidor Web (Aplicação)" as WebServer {
+    artifact "Aplicação" as App
+  }
+
+  database "Banco de Dados" as DB
+
+  node "Balanceador de Carga" as LoadBalancer
+}
+
+actor "Usuário" as User
+
+User --> LoadBalancer
+LoadBalancer --> WebServer
+WebServer --> DB
+
+@enduml
+'''
